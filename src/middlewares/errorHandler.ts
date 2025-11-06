@@ -1,10 +1,13 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { isAxiosError } from 'axios';
 
-export const errorHandler = (err: unknown, req: Request, res: Response, next: NextFunction) => {
+export const errorHandler = (err: unknown, _req: Request, res: Response, _next: NextFunction) => {
   if (isAxiosError(err)) {
-    const status = err.response?.status ?? 500;
-    const data = err.response?.data ?? { message: 'Unknown error from TMDB' };
+    const status: number = err.response?.status ?? 500;
+    const data: Record<string, unknown> = err.response?.data ?? {
+      message: 'Unknown error from TMDB',
+    };
+
     return res.status(status).json(data);
   }
 

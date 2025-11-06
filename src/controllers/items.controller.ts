@@ -8,7 +8,7 @@ export class ItemController {
   getItems: RequestHandler = handleControllerErrors(async (req, res) => {
     const { query, page, pageSize } = req.query;
 
-    const data = await this.tmdbService.searchMovies(
+    const data: Record<string, unknown>[] = await this.tmdbService.searchMovies(
       query as string,
       page ? +page : undefined,
       pageSize ? +pageSize : undefined,
@@ -18,7 +18,7 @@ export class ItemController {
   });
 
   getItemById: RequestHandler = handleControllerErrors(async (req, res) => {
-    const item = await this.tmdbService.searchMovieById(+req.params.id);
+    const item: Record<string, unknown> = await this.tmdbService.searchMovieById(+req.params.id);
 
     res.json(item);
   });

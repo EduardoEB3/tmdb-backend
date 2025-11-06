@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 
 export class HealthController {
-  check = (_req: Request, res: Response) => {
+  check: RequestHandler = (_req: Request, res: Response) => {
     res.json({
       status: 'ok',
       uptime: process.uptime(),
