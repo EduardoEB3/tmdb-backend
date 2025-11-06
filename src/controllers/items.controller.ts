@@ -1,32 +1,25 @@
 import { RequestHandler } from 'express';
 import { TMDBService } from '../services/tmdb.service';
+import { handleControllerErrors } from '../utils/handleControllerErrors';
 
 export class ItemController {
   constructor(private readonly tmdbService: TMDBService) {}
 
-  getItems: RequestHandler = async (req, res) => {
-    try {
-      const { query, page, pageSize } = req.query;
+  getItems: RequestHandler = handleControllerErrors(async (req, res) => {
+    const { query, page, pageSize } = req.query;
 
-      const data = await this.tmdbService.searchMovies(
-        query as string,
-        page ? +page : undefined,
-        pageSize ? +pageSize : undefined,
-      );
+    const data = await this.tmdbService.searchMovies(
+      query as string,
+      page ? +page : undefined,
+      pageSize ? +pageSize : undefined,
+    );
 
-      res.json(data);
-    } catch (_err) {
-      res.status(500).json({ message: 'Error fetching data' });
-    }
-  };
+    res.json(data);
+  });
 
-  getItemById: RequestHandler = async (req, res) => {
-    try {
-      const item = await this.tmdbService.searchMovieById(+req.params.id);
+  getItemById: RequestHandler = handleControllerErrors(async (req, res) => {
+    const item = await this.tmdbService.searchMovieById(+req.params.id);
 
-      res.json(item);
-    } catch (_err) {
-      res.status(500).json({ message: 'Error fetching data' });
-    }
-  };
+    res.json(item);
+  });
 }
