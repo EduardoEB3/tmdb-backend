@@ -19,4 +19,14 @@ export class ItemController {
       res.status(500).json({ message: 'Error fetching data' });
     }
   };
+
+  getItemById: RequestHandler = async (req, res) => {
+    try {
+      const item = await this.tmdbService.searchMovieById(+req.params.id);
+
+      res.json(item);
+    } catch (_err) {
+      res.status(500).json({ message: 'Error fetching data' });
+    }
+  };
 }

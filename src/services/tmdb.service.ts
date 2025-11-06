@@ -26,6 +26,12 @@ export class TMDBService {
     return data.results.slice(0, pageSize).map(this.normalizeMovie);
   }
 
+  async searchMovieById(id: number): Promise<Record<string, unknown>> {
+    const { data } = await this.client.get(`/movie/${id}`);
+
+    return this.normalizeMovie(data);
+  }
+
   private normalizeMovie(movie: Record<string, unknown>): Record<string, unknown> {
     return {
       id: movie.id,
