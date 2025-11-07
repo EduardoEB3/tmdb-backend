@@ -219,11 +219,11 @@ File: `tests/items.test.ts` (additional block)
 
 ![Health endpoint](./docs/screenshots/health-endpoint.png)
 
-### 🎬 Endpoint /items (listado)
+### 🎬 Endpoint /items (list)
 
 ![Items list](./docs/screenshots/items-list.png)
 
-### 🎞️ Endpoint /items/:id (detalle)
+### 🎞️ Endpoint /items/:id (details)
 
 ![Item detail](./docs/screenshots/items-detail.png)
 
