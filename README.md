@@ -56,7 +56,7 @@ make build
 make run
 ```
 
-O directamente:
+Or directly:
 
 ```sh
 docker build -t tmdb-backend .
