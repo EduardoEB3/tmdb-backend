@@ -8,14 +8,14 @@ The service exposes endpoints to fetch a paginated list of movies and detailed i
 
 ## 🚀 Technologies & Stack
 
-- **Node.js 22**
-- **TypeScript**
-- **Express**
-- **Axios** (consumo de TMDB)
-- **Swagger / OpenAPI 3** (documentación)
-- **ESLint 9 + Prettier** (linting y formato)
-- **Jest + Supertest** (testing)
-- **Docker + Makefile** (automatización)
+* **Node.js 22**
+* **TypeScript**
+* **Express**
+* **Axios** (TMDB consumption)
+* **Swagger / OpenAPI 3** (API documentation)
+* **ESLint 9 + Prettier** (linting and formatting)
+* **Jest + Supertest** (testing)
+* **Docker + Makefile** (automation)
 
 ---
 
